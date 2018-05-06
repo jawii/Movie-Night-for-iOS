@@ -6,37 +6,110 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Selection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Movie_Night" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainSelectionViewController" customModule="Movie_Night" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs">
-                                <rect key="frame" x="153" y="209" width="69" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-H9-PGo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs" userLabel="watcher1">
+                                <rect key="frame" x="29" y="260" width="123" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Watcher 1"/>
+                                <state key="normal" image="bubble-empty"/>
+                                <connections>
+                                    <action selector="watcherSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z4K-Fm-Ujo"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xk-N2-CG3">
-                                <rect key="frame" x="152" y="445" width="71" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xk-N2-CG3" userLabel="watcher2">
+                                <rect key="frame" x="236" y="260" width="123" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Watcher 2"/>
+                                <state key="normal" image="bubble-empty"/>
+                                <connections>
+                                    <action selector="watcherSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXU-ef-Cam"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Cp4-rS-YcA"/>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XrQ-XM-QX5"/>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ybn-Ok-SV4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yJZ-H9-PGo" secondAttribute="bottom" id="nVK-KA-rxe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wmg-eG-fo4"/>
+                    <connections>
+                        <segue destination="Xdw-jC-PJx" kind="show" identifier="actorSelect" id="ZPm-EG-T4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="-574"/>
+            <point key="canvasLocation" x="1109.5999999999999" y="-574.36281859070471"/>
+        </scene>
+        <!--Pick actors you like-->
+        <scene sceneID="P1O-Cb-Cpq">
+            <objects>
+                <tableViewController title="Pick actors you like" id="Xdw-jC-PJx" customClass="ActorSelectionViewController" customModule="Movie_Night" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aJE-xp-BwF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="actorCell" rowHeight="120" id="yZ7-d8-A5B" customClass="ActorTableViewCell" customModule="Movie_Night" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yZ7-d8-A5B" id="Tlt-vd-QLN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XAc-cT-gLa">
+                                            <rect key="frame" x="245" y="10" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="6Ix-rD-yFb"/>
+                                                <constraint firstAttribute="width" constant="100" id="OtK-Sa-suU"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actor name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy5-mS-46q">
+                                            <rect key="frame" x="24" y="19" width="213" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Sy5-mS-46q" firstAttribute="leading" secondItem="Tlt-vd-QLN" secondAttribute="leadingMargin" constant="8" id="JkX-1W-m99"/>
+                                        <constraint firstItem="XAc-cT-gLa" firstAttribute="centerY" secondItem="Tlt-vd-QLN" secondAttribute="centerY" id="T1b-R3-TwR"/>
+                                        <constraint firstAttribute="trailing" secondItem="XAc-cT-gLa" secondAttribute="trailing" constant="30" id="UKA-1B-6nd"/>
+                                        <constraint firstItem="XAc-cT-gLa" firstAttribute="leading" secondItem="Sy5-mS-46q" secondAttribute="trailing" constant="8" id="bvz-wU-Ddj"/>
+                                        <constraint firstItem="Sy5-mS-46q" firstAttribute="top" secondItem="Tlt-vd-QLN" secondAttribute="topMargin" constant="8" id="sNQ-7T-P5T"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="actorImage" destination="XAc-cT-gLa" id="Inm-mu-gaN"/>
+                                    <outlet property="actorName" destination="Sy5-mS-46q" id="Y4Q-gY-AxN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xdw-jC-PJx" id="7Ix-Ik-Jgh"/>
+                            <outlet property="delegate" destination="Xdw-jC-PJx" id="YeT-1c-hYf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwh-O8-zit" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909.5999999999999" y="-574.36281859070471"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vSL-r4-YuF">
@@ -57,4 +130,8 @@
             <point key="canvasLocation" x="133.59999999999999" y="-574.36281859070471"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg-iphone6" width="751" height="1335"/>
+        <image name="bubble-empty" width="123" height="97"/>
+    </resources>
 </document>

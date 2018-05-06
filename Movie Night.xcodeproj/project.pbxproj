@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A929D8CD23B621A39A48778 /* Pods_Movie_Night.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478E705E949F93CA9149FEDE /* Pods_Movie_Night.framework */; };
 		3175FD1B209D74050036DF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD1A209D74050036DF56 /* AppDelegate.swift */; };
-		3175FD1D209D74050036DF56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD1C209D74050036DF56 /* ViewController.swift */; };
+		3175FD1D209D74050036DF56 /* MainSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD1C209D74050036DF56 /* MainSelectionViewController.swift */; };
 		3175FD20209D74050036DF56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175FD1E209D74050036DF56 /* Main.storyboard */; };
 		3175FD22209D740A0036DF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175FD21209D740A0036DF56 /* Assets.xcassets */; };
 		3175FD25209D740A0036DF56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175FD23209D740A0036DF56 /* LaunchScreen.storyboard */; };
+		3175FD2D209E01770036DF56 /* ActorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD2C209E01770036DF56 /* ActorSelectionViewController.swift */; };
+		3175FD31209ED55C0036DF56 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD30209ED55C0036DF56 /* UIImageView.swift */; };
+		3175FD34209ED5ED0036DF56 /* Pods_Movie_Night.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478E705E949F93CA9149FEDE /* Pods_Movie_Night.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3175FD17209D74050036DF56 /* Movie Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Night.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175FD1A209D74050036DF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3175FD1C209D74050036DF56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3175FD1C209D74050036DF56 /* MainSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelectionViewController.swift; sourceTree = "<group>"; };
 		3175FD1F209D74050036DF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3175FD21209D740A0036DF56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3175FD24209D740A0036DF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3175FD26209D740A0036DF56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3175FD2C209E01770036DF56 /* ActorSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorSelectionViewController.swift; sourceTree = "<group>"; };
+		3175FD30209ED55C0036DF56 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		451632E2E8C56EA5A030F32F /* Pods-Movie Night.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Night.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movie Night/Pods-Movie Night.debug.xcconfig"; sourceTree = "<group>"; };
 		478E705E949F93CA9149FEDE /* Pods_Movie_Night.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_Night.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F2CF1C1A4B6A4A69AB2B91 /* Pods-Movie Night.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Night.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movie Night/Pods-Movie Night.release.xcconfig"; sourceTree = "<group>"; };
@@ -33,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A929D8CD23B621A39A48778 /* Pods_Movie_Night.framework in Frameworks */,
+				3175FD34209ED5ED0036DF56 /* Pods_Movie_Night.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,13 +66,31 @@
 			isa = PBXGroup;
 			children = (
 				3175FD1A209D74050036DF56 /* AppDelegate.swift */,
-				3175FD1C209D74050036DF56 /* ViewController.swift */,
+				3175FD33209ED57A0036DF56 /* Controllers */,
+				3175FD32209ED56A0036DF56 /* Extensions */,
 				3175FD1E209D74050036DF56 /* Main.storyboard */,
 				3175FD21209D740A0036DF56 /* Assets.xcassets */,
 				3175FD23209D740A0036DF56 /* LaunchScreen.storyboard */,
 				3175FD26209D740A0036DF56 /* Info.plist */,
 			);
 			path = "Movie Night";
+			sourceTree = "<group>";
+		};
+		3175FD32209ED56A0036DF56 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3175FD30209ED55C0036DF56 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3175FD33209ED57A0036DF56 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3175FD1C209D74050036DF56 /* MainSelectionViewController.swift */,
+				3175FD2C209E01770036DF56 /* ActorSelectionViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		362D6920DC4D35F621F326BD /* Pods */ = {
@@ -200,7 +222,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3175FD1D209D74050036DF56 /* ViewController.swift in Sources */,
+				3175FD31209ED55C0036DF56 /* UIImageView.swift in Sources */,
+				3175FD1D209D74050036DF56 /* MainSelectionViewController.swift in Sources */,
+				3175FD2D209E01770036DF56 /* ActorSelectionViewController.swift in Sources */,
 				3175FD1B209D74050036DF56 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,7 +373,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H28M339QJB;
 				INFOPLIST_FILE = "Movie Night/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bittifield.movienight.Movie-Night";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -365,7 +392,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H28M339QJB;
 				INFOPLIST_FILE = "Movie Night/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bittifield.movienight.Movie-Night";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

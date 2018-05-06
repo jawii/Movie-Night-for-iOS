@@ -9,7 +9,7 @@
 import UIKit
 import TMDBSwift
 
-class ViewController: UIViewController {
+class MainSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +26,22 @@ class ViewController: UIViewController {
 //                    }
 //                }
 //            }
-            PersonMDB.popular(page: 1) { data, ppl in
-                if let people = ppl {
-                    for human in people {
-                        print(human.name)
-                    }
-                }
-            }
-        
-        
-    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue")
+    }
+    
+    @IBAction func watcherSelection(_ sender: Any) {
+        
+            performSegue(withIdentifier: "actorSelect", sender: nil)
+    }
 
 }
 
