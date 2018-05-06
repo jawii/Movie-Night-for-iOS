@@ -1,52 +1,17 @@
 //
-//  ActorSelectionViewController.swift
+//  GenreSelectionViewController.swift
 //  Movie Night
 //
-//  Created by Jaakko Kenttä on 05/05/2018.
+//  Created by Jaakko Kenttä on 06/05/2018.
 //  Copyright © 2018 Jaakko Kenttä. All rights reserved.
 //
 
 import UIKit
-import TMDBSwift
 
-class ActorSelectionViewController: UITableViewController {
-    
-    
-    var actorsData: WatcherDataModel?
-    
-    var baseURL = "https://image.tmdb.org/t/p/"
-    var sizeParam = ""
-    
+class GenreSelectionViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
-        tableView.allowsSelection = false
-        actorsData?.canViewResults = true
-        
-        let next = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-        navigationItem.setRightBarButton(next, animated: true)
-        
-
-        ConfigurationMDB.configuration { clientData, configs in
-            if let configData = configs {
-                //self.baseURL = configData.base_url
-                //print(self.baseURL)
-                self.sizeParam = configData.still_sizes[0]
-            }
-        }
-        // print(actorsData)
-        PersonMDB.popular(page: 1) { data, ppl in
-            if let people = ppl {
-                for human in people {
-                    self.actorsData!.actorsList.append(human)
-                    //print(human.name)
-                    //print(human.profile_path)
-                }
-            }
-            self.tableView.reloadData()
-        }
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -63,51 +28,24 @@ class ActorSelectionViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let rowNumber = actorsData?.actorsList.count {
-            return rowNumber
-        } else {
-            return 0
-        }
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
-
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as! ActorTableViewCell
-        
-        let actor = actorsData!.actorsList[indexPath.row]
-        cell.delegate = actorsData
-        
-        cell.person = actor
-        cell.liked = false
-        for actor1 in actorsData!.likedActors {
-            if actor1 == actor {
-                cell.liked = true
-            }
-        }
-        cell.disLiked = false
-        for actor1 in actorsData!.disLikedActors {
-            if actor1 == actor {
-                cell.disLiked = true
-            }
-        }
-        
-        cell.configureButtons()
-        
-        cell.actorName.text = actor.name
-        let imageURL = baseURL + sizeParam
-        
-        if let imagePath = actor.profile_path {
-            cell.actorImage.downloadedFrom(link: imageURL + imagePath)
-        } else {
-            cell.actorImage.image = #imageLiteral(resourceName: "placeHolderImage")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -155,19 +93,3 @@ class ActorSelectionViewController: UITableViewController {
     */
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,6 +11,7 @@ import TMDBSwift
 
 class WatcherDataModel {
     
+    var canViewResults = false
     var actorsList: [PersonResults] = []
     var likedActors: [PersonResults] = [] {
         didSet {

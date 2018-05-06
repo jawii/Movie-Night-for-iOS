@@ -13,6 +13,10 @@ class MainSelectionViewController: UIViewController {
     
     var watcher1: WatcherDataModel?
     var watcher2: WatcherDataModel?
+    
+    
+    @IBOutlet weak var viewResults: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +39,21 @@ class MainSelectionViewController: UIViewController {
 //                }
 //            }
         navigationController?.isNavigationBarHidden = true
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        for actor in watcher1!.likedActors {
-//            print(actor.name)
-//        }
+        
+        print("ViewDidAppear")
+        if watcher1!.canViewResults && watcher2!.canViewResults {
+            viewResults.isHidden = false
+        } else {
+            viewResults.isHidden = true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
 
