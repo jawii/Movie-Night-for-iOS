@@ -30,7 +30,7 @@
                                     <action selector="watcherSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z4K-Fm-Ujo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xk-N2-CG3" userLabel="watcher2">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xk-N2-CG3" userLabel="watcher2">
                                 <rect key="frame" x="236" y="260" width="123" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="bubble-empty"/>
@@ -104,7 +104,7 @@
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="actorDisLiked:" destination="yZ7-d8-A5B" eventType="touchUpInside" id="kBN-AA-o4s"/>
+                                                        <action selector="actorDisLiked:" destination="yZ7-d8-A5B" eventType="touchUpInside" id="xv4-wl-Amu"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjW-jq-shi">

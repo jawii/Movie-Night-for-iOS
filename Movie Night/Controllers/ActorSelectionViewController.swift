@@ -9,50 +9,11 @@
 import UIKit
 import TMDBSwift
 
-class ActorTableViewCell: UITableViewCell{
-    
-    @IBOutlet weak var actorName: UILabel!
-    @IBOutlet weak var actorImage: UIImageView!
-    
-    @IBOutlet weak var yesButton: UIButton! {
-        didSet {
-            customizeBtn(for: yesButton)
-        }
-    }
-    @IBOutlet weak var noButton: UIButton! {
-        didSet {
-            customizeBtn(for: noButton)
-        }
-    }
-    
-    var liked: Bool = false
-    var disLiked: Bool = false
-    
-    private func customizeBtn(for button: UIButton) {
-        button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        button.titleLabel?.font.withSize(42)
-        button.titleLabel?.textColor = UIColor.blue
-    }
-    
-    @IBAction func actorLiked(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        liked = !liked
-        print("Actor liked!")
-    }
-    @IBAction func actorDisLiked(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-    }
-    
-    
-    
-    
-    
-}
-
 class ActorSelectionViewController: UITableViewController {
     
     
-    var actors: [PersonResults] = []
+    var actorsData: WatcherDataModel?
+    
     var baseURL = "https://image.tmdb.org/t/p/"
     var sizeParam = ""
     
@@ -60,6 +21,7 @@ class ActorSelectionViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        tableView.allowsSelection = false
 
         ConfigurationMDB.configuration { clientData, configs in
             if let configData = configs {
@@ -68,18 +30,18 @@ class ActorSelectionViewController: UITableViewController {
                 self.sizeParam = configData.still_sizes[0]
             }
         }
-    
-
+        // print(actorsData)
         PersonMDB.popular(page: 1) { data, ppl in
             if let people = ppl {
                 for human in people {
-                    self.actors.append(human)
+                    self.actorsData!.actorsList.append(human)
                     //print(human.name)
                     //print(human.profile_path)
                 }
             }
             self.tableView.reloadData()
         }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -96,25 +58,47 @@ class ActorSelectionViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        print(actors.count)
-        return actors.count
+        if let rowNumber = actorsData?.actorsList.count {
+            return rowNumber
+        } else {
+            return 0
+        }
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as! ActorTableViewCell
         
-        cell.actorName.text = actors[indexPath.row].name
+        let actor = actorsData!.actorsList[indexPath.row]
+        cell.delegate = actorsData
+        
+        cell.person = actor
+        cell.liked = false
+        for actor1 in actorsData!.likedActors {
+            if actor1 == actor {
+                cell.liked = true
+            }
+        }
+        cell.disLiked = false
+        for actor1 in actorsData!.disLikedActors {
+            if actor1 == actor {
+                cell.disLiked = true
+            }
+        }
+        
+        cell.configureButtons()
+        
+        cell.actorName.text = actor.name
         let imageURL = baseURL + sizeParam
         
-        if let imagePath = actors[indexPath.row].profile_path {
+        if let imagePath = actor.profile_path {
             cell.actorImage.downloadedFrom(link: imageURL + imagePath)
+        } else {
+            cell.actorImage.image = #imageLiteral(resourceName: "placeHolderImage")
         }
 
         return cell
