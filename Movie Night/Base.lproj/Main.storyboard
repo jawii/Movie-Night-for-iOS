@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-H9-PGo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-H9-PGo">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs" userLabel="watcher1">
@@ -41,10 +41,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Cp4-rS-YcA"/>
-                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XrQ-XM-QX5"/>
-                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ybn-Ok-SV4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yJZ-H9-PGo" secondAttribute="bottom" id="nVK-KA-rxe"/>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="SPS-UR-exN"/>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WhH-1v-a0P"/>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rGL-Ky-LXz"/>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s7p-lG-rsa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -81,23 +81,72 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actor name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy5-mS-46q">
-                                            <rect key="frame" x="24" y="19" width="213" height="21"/>
+                                            <rect key="frame" x="24" y="19" width="213" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6ic-El-Whx">
+                                            <rect key="frame" x="32" y="60" width="197" height="50"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-P6-yyM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="50"/>
+                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="NO">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="actorDisLiked:" destination="yZ7-d8-A5B" eventType="touchUpInside" id="kBN-AA-o4s"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjW-jq-shi">
+                                                    <rect key="frame" x="103.5" y="0.0" width="93.5" height="50"/>
+                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="YES">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="actorLiked:" destination="yZ7-d8-A5B" eventType="touchUpInside" id="WC9-cG-T6h"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="WLi-tr-FrN"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Sy5-mS-46q" firstAttribute="leading" secondItem="Tlt-vd-QLN" secondAttribute="leadingMargin" constant="8" id="JkX-1W-m99"/>
+                                        <constraint firstItem="6ic-El-Whx" firstAttribute="bottom" secondItem="XAc-cT-gLa" secondAttribute="bottom" id="NSI-ZM-WoH"/>
+                                        <constraint firstItem="XAc-cT-gLa" firstAttribute="leading" secondItem="6ic-El-Whx" secondAttribute="trailing" constant="16" id="Sws-zx-wdx"/>
                                         <constraint firstItem="XAc-cT-gLa" firstAttribute="centerY" secondItem="Tlt-vd-QLN" secondAttribute="centerY" id="T1b-R3-TwR"/>
                                         <constraint firstAttribute="trailing" secondItem="XAc-cT-gLa" secondAttribute="trailing" constant="30" id="UKA-1B-6nd"/>
                                         <constraint firstItem="XAc-cT-gLa" firstAttribute="leading" secondItem="Sy5-mS-46q" secondAttribute="trailing" constant="8" id="bvz-wU-Ddj"/>
                                         <constraint firstItem="Sy5-mS-46q" firstAttribute="top" secondItem="Tlt-vd-QLN" secondAttribute="topMargin" constant="8" id="sNQ-7T-P5T"/>
+                                        <constraint firstItem="6ic-El-Whx" firstAttribute="leading" secondItem="Tlt-vd-QLN" secondAttribute="leadingMargin" constant="16" id="zQo-Io-L7T"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="actorImage" destination="XAc-cT-gLa" id="Inm-mu-gaN"/>
                                     <outlet property="actorName" destination="Sy5-mS-46q" id="Y4Q-gY-AxN"/>
+                                    <outlet property="noButton" destination="VaV-P6-yyM" id="xtS-Cd-3ky"/>
+                                    <outlet property="yesButton" destination="vjW-jq-shi" id="aKo-c8-AUj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

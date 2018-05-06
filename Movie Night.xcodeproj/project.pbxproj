@@ -14,7 +14,7 @@
 		3175FD25209D740A0036DF56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175FD23209D740A0036DF56 /* LaunchScreen.storyboard */; };
 		3175FD2D209E01770036DF56 /* ActorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD2C209E01770036DF56 /* ActorSelectionViewController.swift */; };
 		3175FD31209ED55C0036DF56 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD30209ED55C0036DF56 /* UIImageView.swift */; };
-		3175FD34209ED5ED0036DF56 /* Pods_Movie_Night.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478E705E949F93CA9149FEDE /* Pods_Movie_Night.framework */; };
+		3175FD43209ED9620036DF56 /* Pods_Movie_Night.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478E705E949F93CA9149FEDE /* Pods_Movie_Night.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3175FD34209ED5ED0036DF56 /* Pods_Movie_Night.framework in Frameworks */,
+				3175FD43209ED9620036DF56 /* Pods_Movie_Night.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +372,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H28M339QJB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Movie Night/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -391,6 +395,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H28M339QJB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Movie Night/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

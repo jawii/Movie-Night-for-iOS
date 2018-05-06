@@ -13,6 +13,40 @@ class ActorTableViewCell: UITableViewCell{
     
     @IBOutlet weak var actorName: UILabel!
     @IBOutlet weak var actorImage: UIImageView!
+    
+    @IBOutlet weak var yesButton: UIButton! {
+        didSet {
+            customizeBtn(for: yesButton)
+        }
+    }
+    @IBOutlet weak var noButton: UIButton! {
+        didSet {
+            customizeBtn(for: noButton)
+        }
+    }
+    
+    var liked: Bool = false
+    var disLiked: Bool = false
+    
+    private func customizeBtn(for button: UIButton) {
+        button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        button.titleLabel?.font.withSize(42)
+        button.titleLabel?.textColor = UIColor.blue
+    }
+    
+    @IBAction func actorLiked(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        liked = !liked
+        print("Actor liked!")
+    }
+    @IBAction func actorDisLiked(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+    
+    
+    
+    
+    
 }
 
 class ActorSelectionViewController: UITableViewController {
@@ -25,6 +59,7 @@ class ActorSelectionViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
 
         ConfigurationMDB.configuration { clientData, configs in
             if let configData = configs {
@@ -36,27 +71,6 @@ class ActorSelectionViewController: UITableViewController {
     
 
         PersonMDB.popular(page: 1) { data, ppl in
-            if let people = ppl {
-                for human in people {
-                    self.actors.append(human)
-                    //print(human.name)
-                    //print(human.profile_path)
-                }
-            }
-            self.tableView.reloadData()
-        }
-        PersonMDB.popular(page: 2) { data, ppl in
-            if let people = ppl {
-                for human in people {
-                    self.actors.append(human)
-                    //print(human.name)
-                    //print(human.profile_path)
-                }
-            }
-            self.tableView.reloadData()
-        }
-        
-        PersonMDB.popular(page: 3) { data, ppl in
             if let people = ppl {
                 for human in people {
                     self.actors.append(human)

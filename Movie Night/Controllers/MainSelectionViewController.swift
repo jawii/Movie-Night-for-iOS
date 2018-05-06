@@ -26,6 +26,7 @@ class MainSelectionViewController: UIViewController {
 //                    }
 //                }
 //            }
+        navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +36,7 @@ class MainSelectionViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("preparing for segue")
+        //print("preparing for segue")
     }
     
     @IBAction func watcherSelection(_ sender: Any) {

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F10025D1DD882B054C53C76C11A00673"
-               BuildableName = "TMDBSwift.framework"
-               BlueprintName = "TMDBSwift"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "3175FD16209D74050036DF56"
+               BuildableName = "Movie Night.app"
+               BlueprintName = "Movie Night"
+               ReferencedContainer = "container:Movie Night.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3175FD16209D74050036DF56"
+            BuildableName = "Movie Night.app"
+            BlueprintName = "Movie Night"
+            ReferencedContainer = "container:Movie Night.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F10025D1DD882B054C53C76C11A00673"
-            BuildableName = "TMDBSwift.framework"
-            BlueprintName = "TMDBSwift"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "3175FD16209D74050036DF56"
+            BuildableName = "Movie Night.app"
+            BlueprintName = "Movie Night"
+            ReferencedContainer = "container:Movie Night.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,6 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3175FD16209D74050036DF56"
+            BuildableName = "Movie Night.app"
+            BlueprintName = "Movie Night"
+            ReferencedContainer = "container:Movie Night.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
