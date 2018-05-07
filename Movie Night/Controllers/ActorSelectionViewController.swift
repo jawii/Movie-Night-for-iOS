@@ -12,7 +12,8 @@ import TMDBSwift
 class ActorSelectionViewController: UITableViewController {
     
     
-    var actorsData: WatcherDataModel?
+    var activeWatcher: WatcherDataModel?
+    var watchers: Watchers?
     
     var baseURL = "https://image.tmdb.org/t/p/"
     var sizeParam = ""
@@ -23,7 +24,7 @@ class ActorSelectionViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         tableView.allowsSelection = false
-        actorsData?.canViewResults = true
+        activeWatcher?.canViewResults = true
         
         let next = UIBarButtonItem(title: "Genre Selection >", style: .done, target:self, action: #selector(nextController))
         navigationItem.setRightBarButton(next, animated: true)
@@ -36,11 +37,11 @@ class ActorSelectionViewController: UITableViewController {
                 self.sizeParam = configData.still_sizes[0]
             }
         }
-        if actorsData?.actorsList.count == 0 {
+        if activeWatcher?.actorsList.count == 0 {
             PersonMDB.popular(page: 1) { data, ppl in
                 if let people = ppl {
                     for human in people {
-                        self.actorsData!.actorsList.append(human)
+                        self.activeWatcher!.actorsList.append(human)
                         //print(human.name)
                         //print(human.profile_path)
                     }
@@ -64,7 +65,8 @@ class ActorSelectionViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "genreSelection" {
             let controller = segue.destination as? GenreSelectionViewController
-            controller?.watcher = actorsData
+            controller?.activeWatcher = activeWatcher
+            controller?.watchers = watchers
         }
     }
 
@@ -80,7 +82,7 @@ class ActorSelectionViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let rowNumber = actorsData?.actorsList.count {
+        if let rowNumber = activeWatcher?.actorsList.count {
             return rowNumber
         } else {
             return 0
@@ -91,18 +93,18 @@ class ActorSelectionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as! ActorTableViewCell
         
-        let actor = actorsData!.actorsList[indexPath.row]
-        cell.delegate = actorsData
+        let actor = activeWatcher!.actorsList[indexPath.row]
+        cell.delegate = activeWatcher
         
         cell.person = actor
         cell.liked = false
-        for actor1 in actorsData!.likedActors {
+        for actor1 in activeWatcher!.likedActors {
             if actor1 == actor {
                 cell.liked = true
             }
         }
         cell.disLiked = false
-        for actor1 in actorsData!.disLikedActors {
+        for actor1 in activeWatcher!.disLikedActors {
             if actor1 == actor {
                 cell.disLiked = true
             }

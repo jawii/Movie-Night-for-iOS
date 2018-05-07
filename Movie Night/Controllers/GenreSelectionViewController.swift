@@ -11,7 +11,8 @@ import TMDBSwift
 
 class GenreSelectionViewController: UITableViewController {
     
-    var watcher: WatcherDataModel?
+    var activeWatcher: WatcherDataModel?
+    var watchers: Watchers?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +23,12 @@ class GenreSelectionViewController: UITableViewController {
         
         
         // Get the genres if not got
-        if watcher?.genresList.count == 0 {
+        if activeWatcher?.genresList.count == 0 {
             GenresMDB.genres(listType: .movie, language: "en"){
                 apiReturn, genres in
                 if let genres = genres{
                     genres.forEach{
-                        self.watcher?.genresList.append($0)
+                        self.activeWatcher?.genresList.append($0)
                     }
                 }
                 self.tableView.reloadData()
@@ -41,7 +42,8 @@ class GenreSelectionViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mainMenuSegue" {
-            let _ = segue.destination as! MainSelectionViewController
+            let controller = segue.destination as! MainSelectionViewController
+            controller.watchers = watchers
         }
     }
     
@@ -54,7 +56,7 @@ class GenreSelectionViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let watcher = watcher {
+        if let watcher = activeWatcher {
             return watcher.genresList.count
             
         } else {
@@ -68,13 +70,13 @@ class GenreSelectionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "genreCell", for: indexPath) as! GenreTableViewCell
 
-        let genre = watcher?.genresList[indexPath.row]
+        let genre = activeWatcher?.genresList[indexPath.row]
         cell.genreNameLabel.text = genre?.name
         cell.currentGenre = genre
-        cell.delegate = watcher
+        cell.delegate = activeWatcher
         
 
-        for genre1 in watcher!.likedGenres {
+        for genre1 in activeWatcher!.likedGenres {
             if genre1 == genre {
                 cell.isGenreSelected = true
                 cell.selectionButton.isSelected = true

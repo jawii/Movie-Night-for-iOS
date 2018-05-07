@@ -67,8 +67,8 @@
                     <navigationItem key="navigationItem" id="Wmg-eG-fo4"/>
                     <connections>
                         <outlet property="viewResults" destination="1La-KN-o18" id="1NK-lN-xa0"/>
-                        <outlet property="watcherOneBtn" destination="6xk-N2-CG3" id="7Ee-bb-DPJ"/>
-                        <outlet property="watcherTwoBtn" destination="fWg-ck-GBs" id="weU-Kr-Qel"/>
+                        <outlet property="watcherOneBtn" destination="fWg-ck-GBs" id="Hdh-u9-ZgS"/>
+                        <outlet property="watcherTwoBtn" destination="6xk-N2-CG3" id="p8A-gy-Ua5"/>
                         <segue destination="Xdw-jC-PJx" kind="show" identifier="actorSelect" id="ZPm-EG-T4d"/>
                     </connections>
                 </viewController>
@@ -271,6 +271,7 @@
         <image name="bubble-empty" width="123" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ZPm-EG-T4d"/>
         <segue reference="aqj-f2-O58"/>
     </inferredMetricsTieBreakers>
 </document>

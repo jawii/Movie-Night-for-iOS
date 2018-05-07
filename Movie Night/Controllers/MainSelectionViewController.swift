@@ -11,8 +11,7 @@ import TMDBSwift
 
 class MainSelectionViewController: UIViewController {
     
-    var watcher1: WatcherDataModel?
-    var watcher2: WatcherDataModel?
+    var watchers: Watchers?
     
     @IBOutlet weak var watcherOneBtn: UIButton!
     @IBOutlet weak var watcherTwoBtn: UIButton!
@@ -26,34 +25,36 @@ class MainSelectionViewController: UIViewController {
         TMDBConfig.apikey = "307c8c4a6807b3e4eac488ba365d7f08"
         
         // If there is no watchers. Setup them
-        if watcher1 == nil {
+        if watchers == nil {
             print("Wathcers were nil!")
-            watcher1 = WatcherDataModel()
-            watcher2 = WatcherDataModel()
+            watchers = Watchers()
         }
         
         navigationController?.isNavigationBarHidden = true
+        
+        
+        let canViewResults1: Bool = watchers!.watcher1.canViewResults
+        let canViewResults2: Bool = watchers!.watcher2.canViewResults
+        
+        if canViewResults1 && canViewResults2{
+            viewResults.isHidden = false
+        } else {
+            viewResults.isHidden = true
+        }
+        
+        if watchers!.watcher1.canViewResults {
+            watcherOneBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
+        }
+        if watchers!.watcher2.canViewResults {
+            watcherTwoBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
+        }
         
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if watcher1!.canViewResults && watcher2!.canViewResults {
-            viewResults.isHidden = false
-        } else {
-            viewResults.isHidden = true
-        }
         
-        print("Watcher1: \(watcher1?.canViewResults)")
-        print("Watcher2: \(watcher2?.canViewResults)")
-        
-        if watcher1!.canViewResults {
-            watcherOneBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
-        }
-        if watcher2!.canViewResults {
-            watcherTwoBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,11 +72,12 @@ class MainSelectionViewController: UIViewController {
             let controller = segue.destination as! ActorSelectionViewController
             
             let sender = sender as! UIButton
+            controller.watchers = watchers
             switch sender.tag {
             case 0:
-                controller.actorsData = watcher1
+                controller.activeWatcher = watchers?.watcher1
             case 1:
-                controller.actorsData = watcher2
+                controller.activeWatcher = watchers?.watcher2
             default:
                 return
             }
