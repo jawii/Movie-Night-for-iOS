@@ -25,7 +25,7 @@ class ActorSelectionViewController: UITableViewController {
         tableView.allowsSelection = false
         actorsData?.canViewResults = true
         
-        let next = UIBarButtonItem(title: "Genre Selection", style: .done, target:self, action: #selector(nextController))
+        let next = UIBarButtonItem(title: "Genre Selection >", style: .done, target:self, action: #selector(nextController))
         navigationItem.setRightBarButton(next, animated: true)
         
 

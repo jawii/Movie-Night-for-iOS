@@ -37,6 +37,11 @@ class ActorTableViewCell: UITableViewCell{
     var liked: Bool = false
     var disLiked: Bool = false
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
     func configureButtons() {
         if !liked {
             yesButton.backgroundColor = buttonBGcolor
@@ -92,4 +97,5 @@ class ActorTableViewCell: UITableViewCell{
         disLiked = !disLiked
         configureButtons()
     }
+    
 }

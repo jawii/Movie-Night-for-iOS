@@ -23,16 +23,16 @@ class WatcherDataModel {
     }
     var disLikedActors: [PersonResults] = []
     
-    
     var genresList: [GenresMDB] = []
-    
+    var likedGenres: [GenresMDB] = [] {
+        didSet {
+            print("Liked Genres:")
+            for genre in likedGenres {
+                print("\(genre) \n")
+            }
+        }
+    }
 }
-
-
-
-
-
-
 
 extension WatcherDataModel: ActorTableViewCellDelegate {
     func removeFromLikedList(person: PersonResults) {
@@ -53,4 +53,24 @@ extension WatcherDataModel: ActorTableViewCellDelegate {
         disLikedActors.append(person)
     }
 }
+
+extension WatcherDataModel: GenreTableViewCellDelegate {
+    func favoriteGenre(with genre: GenresMDB) {
+        likedGenres.append(genre)
+    }
+    func deFavoriteGenre(with genre: GenresMDB) {
+        
+        let index = likedGenres.index(of: genre)
+        if let index = index {
+            likedGenres.remove(at: index)
+        }
+    }
+}
+
+
+
+
+
+
+
 

@@ -16,15 +16,14 @@ class GenreSelectionViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // Create Done Button
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(toTheMainMenu))
+        navigationItem.setRightBarButton(doneBtn, animated: true)
+        
         
         // Get the genres if not got
         if watcher?.genresList.count == 0 {
-            GenresMDB.genres(listType: .tv, language: "en"){
+            GenresMDB.genres(listType: .movie, language: "en"){
                 apiReturn, genres in
                 if let genres = genres{
                     genres.forEach{
@@ -37,11 +36,14 @@ class GenreSelectionViewController: UITableViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func toTheMainMenu() {
+        performSegue(withIdentifier: "mainMenuSegue", sender: nil)
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainMenuSegue" {
+            let _ = segue.destination as! MainSelectionViewController
+        }
+    }
     
     
     
@@ -68,6 +70,16 @@ class GenreSelectionViewController: UITableViewController {
 
         let genre = watcher?.genresList[indexPath.row]
         cell.genreNameLabel.text = genre?.name
+        cell.currentGenre = genre
+        cell.delegate = watcher
+        
+
+        for genre1 in watcher!.likedGenres {
+            if genre1 == genre {
+                cell.isGenreSelected = true
+                cell.selectionButton.isSelected = true
+            }
+        }
 
         return cell
     }

@@ -11,6 +11,13 @@ import TMDBSwift
 
 extension PersonResults: Equatable {
     public static func == (lhs: PersonResults, rhs: PersonResults) -> Bool {
-        return lhs.name == lhs.name && lhs.id == lhs.id && lhs.popularity == rhs.popularity
+        return lhs.name == rhs.name && lhs.id == rhs.id && lhs.popularity == rhs.popularity
     }
+}
+
+extension GenresMDB: Equatable {
+    public static func == (lhs: GenresMDB, rhs: GenresMDB) -> Bool {
+        return lhs.name == rhs.name && lhs.id == rhs.id
+    }
+    
 }

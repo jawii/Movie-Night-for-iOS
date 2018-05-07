@@ -14,6 +14,9 @@ class MainSelectionViewController: UIViewController {
     var watcher1: WatcherDataModel?
     var watcher2: WatcherDataModel?
     
+    @IBOutlet weak var watcherOneBtn: UIButton!
+    @IBOutlet weak var watcherTwoBtn: UIButton!
+    
     
     @IBOutlet weak var viewResults: UIButton!
     
@@ -24,20 +27,11 @@ class MainSelectionViewController: UIViewController {
         
         // If there is no watchers. Setup them
         if watcher1 == nil {
+            print("Wathcers were nil!")
             watcher1 = WatcherDataModel()
             watcher2 = WatcherDataModel()
         }
-//            MovieMDB.movie(movieID: 7984, language: "en") { apiReturn, movie  in
-//                print(movie?.title);
-//            }
-//            GenresMDB.genres(listType: .movie, language: "en") { apiReturn, genres in
-//
-//                if let genres = genres {
-//                    for genre in genres {
-//                        print(genre.name)
-//                    }
-//                }
-//            }
+        
         navigationController?.isNavigationBarHidden = true
         
         
@@ -45,11 +39,20 @@ class MainSelectionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        print("ViewDidAppear")
         if watcher1!.canViewResults && watcher2!.canViewResults {
             viewResults.isHidden = false
         } else {
             viewResults.isHidden = true
+        }
+        
+        print("Watcher1: \(watcher1?.canViewResults)")
+        print("Watcher2: \(watcher2?.canViewResults)")
+        
+        if watcher1!.canViewResults {
+            watcherOneBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
+        }
+        if watcher2!.canViewResults {
+            watcherTwoBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
         }
     }
     

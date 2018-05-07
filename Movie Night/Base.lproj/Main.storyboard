@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-H9-PGo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs" userLabel="watcher1">
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1La-KN-o18">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="553" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="X7Q-S6-rdE"/>
@@ -67,6 +67,8 @@
                     <navigationItem key="navigationItem" id="Wmg-eG-fo4"/>
                     <connections>
                         <outlet property="viewResults" destination="1La-KN-o18" id="1NK-lN-xa0"/>
+                        <outlet property="watcherOneBtn" destination="6xk-N2-CG3" id="7Ee-bb-DPJ"/>
+                        <outlet property="watcherTwoBtn" destination="fWg-ck-GBs" id="weU-Kr-Qel"/>
                         <segue destination="Xdw-jC-PJx" kind="show" identifier="actorSelect" id="ZPm-EG-T4d"/>
                     </connections>
                 </viewController>
@@ -184,12 +186,12 @@
         <scene sceneID="q8s-Cu-03c">
             <objects>
                 <tableViewController id="I7p-sL-97C" customClass="GenreSelectionViewController" customModule="Movie_Night" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Yr-N1-UCZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Yr-N1-UCZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genreCell" rowHeight="100" id="KyK-dQ-eMI" customClass="GenreTableViewCell" customModule="Movie_Night" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genreCell" id="KyK-dQ-eMI" customClass="GenreTableViewCell" customModule="Movie_Night" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KyK-dQ-eMI" id="QPY-bY-iWS">
@@ -202,15 +204,30 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nX-PX-oto">
+                                            <rect key="frame" x="259" y="14" width="70" height="70"/>
+                                            <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="jk6-lF-jpV"/>
+                                                <constraint firstAttribute="width" constant="70" id="sFc-Ry-4zT"/>
+                                            </constraints>
+                                            <state key="normal" title="YES"/>
+                                            <connections>
+                                                <action selector="genreSelection:" destination="KyK-dQ-eMI" eventType="touchUpInside" id="pMN-A1-iOZ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="g05-6L-Bcz" firstAttribute="centerY" secondItem="QPY-bY-iWS" secondAttribute="centerY" id="MhJ-uI-wVh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8nX-PX-oto" secondAttribute="trailing" constant="30" id="YZA-sT-5A0"/>
+                                        <constraint firstItem="8nX-PX-oto" firstAttribute="centerY" secondItem="QPY-bY-iWS" secondAttribute="centerY" id="l0u-fw-C6N"/>
                                         <constraint firstItem="g05-6L-Bcz" firstAttribute="leading" secondItem="QPY-bY-iWS" secondAttribute="leadingMargin" constant="8" id="vA2-D7-I9p"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="genreNameLabel" destination="g05-6L-Bcz" id="UVm-eU-8f2"/>
+                                    <outlet property="selectionButton" destination="8nX-PX-oto" id="dcA-h7-OBD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -222,6 +239,9 @@
                     </tableView>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="mainMenuSegue" id="aqj-f2-O58"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2f-eK-wAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,4 +270,7 @@
         <image name="bg-iphone6" width="751" height="1335"/>
         <image name="bubble-empty" width="123" height="97"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aqj-f2-O58"/>
+    </inferredMetricsTieBreakers>
 </document>
