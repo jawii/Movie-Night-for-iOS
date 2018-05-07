@@ -11,6 +11,7 @@
 		3153FCCB209F031600287BCE /* ActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153FCCA209F031600287BCE /* ActorTableViewCell.swift */; };
 		3153FCCD209F0BD900287BCE /* WatcherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153FCCC209F0BD900287BCE /* WatcherDataModel.swift */; };
 		3153FCD2209F2B4400287BCE /* GenreSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153FCD1209F2B4400287BCE /* GenreSelectionViewController.swift */; };
+		3153FCD420A014C200287BCE /* GenreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153FCD320A014C200287BCE /* GenreTableViewCell.swift */; };
 		3175FD1B209D74050036DF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD1A209D74050036DF56 /* AppDelegate.swift */; };
 		3175FD1D209D74050036DF56 /* MainSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175FD1C209D74050036DF56 /* MainSelectionViewController.swift */; };
 		3175FD20209D74050036DF56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175FD1E209D74050036DF56 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		3153FCCA209F031600287BCE /* ActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorTableViewCell.swift; sourceTree = "<group>"; };
 		3153FCCC209F0BD900287BCE /* WatcherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherDataModel.swift; sourceTree = "<group>"; };
 		3153FCD1209F2B4400287BCE /* GenreSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSelectionViewController.swift; sourceTree = "<group>"; };
+		3153FCD320A014C200287BCE /* GenreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
 		3175FD17209D74050036DF56 /* Movie Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Night.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175FD1A209D74050036DF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3175FD1C209D74050036DF56 /* MainSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelectionViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			children = (
 				3153FCCC209F0BD900287BCE /* WatcherDataModel.swift */,
 				3153FCCA209F031600287BCE /* ActorTableViewCell.swift */,
+				3153FCD320A014C200287BCE /* GenreTableViewCell.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				3153FCC9209F027200287BCE /* PersonResults.swift in Sources */,
 				3175FD1B209D74050036DF56 /* AppDelegate.swift in Sources */,
 				3153FCD2209F2B4400287BCE /* GenreSelectionViewController.swift in Sources */,
+				3153FCD420A014C200287BCE /* GenreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

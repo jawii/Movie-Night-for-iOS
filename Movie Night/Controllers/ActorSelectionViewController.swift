@@ -17,6 +17,7 @@ class ActorSelectionViewController: UITableViewController {
     var baseURL = "https://image.tmdb.org/t/p/"
     var sizeParam = ""
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class ActorSelectionViewController: UITableViewController {
         tableView.allowsSelection = false
         actorsData?.canViewResults = true
         
-        let next = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        let next = UIBarButtonItem(title: "Genre Selection", style: .done, target:self, action: #selector(nextController))
         navigationItem.setRightBarButton(next, animated: true)
         
 
@@ -35,24 +36,36 @@ class ActorSelectionViewController: UITableViewController {
                 self.sizeParam = configData.still_sizes[0]
             }
         }
-        // print(actorsData)
-        PersonMDB.popular(page: 1) { data, ppl in
-            if let people = ppl {
-                for human in people {
-                    self.actorsData!.actorsList.append(human)
-                    //print(human.name)
-                    //print(human.profile_path)
+        if actorsData?.actorsList.count == 0 {
+            PersonMDB.popular(page: 1) { data, ppl in
+                if let people = ppl {
+                    for human in people {
+                        self.actorsData!.actorsList.append(human)
+                        //print(human.name)
+                        //print(human.profile_path)
+                    }
                 }
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
         }
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @objc func nextController() {
+        print("To the Genre selection.")
+        performSegue(withIdentifier: "genreSelection", sender: nil)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "genreSelection" {
+            let controller = segue.destination as? GenreSelectionViewController
+            controller?.watcher = actorsData
+        }
     }
 
     override func didReceiveMemoryWarning() {

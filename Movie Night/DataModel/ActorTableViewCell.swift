@@ -27,7 +27,11 @@ class ActorTableViewCell: UITableViewCell{
     @IBOutlet weak var actorName: UILabel!
     @IBOutlet weak var actorImage: UIImageView!
     
-    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var yesButton: UIButton! {
+        didSet {
+            configureButtons()
+        }
+    }
     @IBOutlet weak var noButton: UIButton!
     
     var liked: Bool = false

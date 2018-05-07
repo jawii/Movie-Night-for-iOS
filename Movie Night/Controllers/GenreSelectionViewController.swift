@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import TMDBSwift
 
 class GenreSelectionViewController: UITableViewController {
+    
+    var watcher: WatcherDataModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,20 @@ class GenreSelectionViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // Get the genres if not got
+        if watcher?.genresList.count == 0 {
+            GenresMDB.genres(listType: .tv, language: "en"){
+                apiReturn, genres in
+                if let genres = genres{
+                    genres.forEach{
+                        self.watcher?.genresList.append($0)
+                    }
+                }
+                self.tableView.reloadData()
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,27 +42,35 @@ class GenreSelectionViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if let watcher = watcher {
+            return watcher.genresList.count
+            
+        } else {
+            return 0
+        }
+        
+        
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "genreCell", for: indexPath) as! GenreTableViewCell
+
+        let genre = watcher?.genresList[indexPath.row]
+        cell.genreNameLabel.text = genre?.name
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

@@ -23,6 +23,9 @@ class WatcherDataModel {
     }
     var disLikedActors: [PersonResults] = []
     
+    
+    var genresList: [GenresMDB] = []
+    
 }
 
 

@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1109.5999999999999" y="-574.36281859070471"/>
+            <point key="canvasLocation" x="786" y="-574"/>
         </scene>
         <!--Pick actors you like-->
         <scene sceneID="P1O-Cb-Cpq">
@@ -173,12 +173,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="I7p-sL-97C" kind="show" id="xrS-Yt-QhN"/>
+                        <segue destination="I7p-sL-97C" kind="show" identifier="genreSelection" id="xrS-Yt-QhN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bwh-O8-zit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1909.5999999999999" y="-574.36281859070471"/>
+            <point key="canvasLocation" x="1522" y="-574"/>
         </scene>
         <!--Genre Selection View Controller-->
         <scene sceneID="q8s-Cu-03c">
@@ -189,15 +189,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KyK-dQ-eMI">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genreCell" rowHeight="100" id="KyK-dQ-eMI" customClass="GenreTableViewCell" customModule="Movie_Night" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KyK-dQ-eMI" id="QPY-bY-iWS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g05-6L-Bcz">
+                                            <rect key="frame" x="24" y="39.5" width="93" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="g05-6L-Bcz" firstAttribute="centerY" secondItem="QPY-bY-iWS" secondAttribute="centerY" id="MhJ-uI-wVh"/>
+                                        <constraint firstItem="g05-6L-Bcz" firstAttribute="leading" secondItem="QPY-bY-iWS" secondAttribute="leadingMargin" constant="8" id="vA2-D7-I9p"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="genreNameLabel" destination="g05-6L-Bcz" id="UVm-eU-8f2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="I7p-sL-97C" id="znD-5d-6qL"/>
                             <outlet property="delegate" destination="I7p-sL-97C" id="BPJ-P2-AHd"/>
@@ -208,7 +225,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2f-eK-wAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2694" y="-573"/>
+            <point key="canvasLocation" x="2256.8000000000002" y="-575.26236881559225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vSL-r4-YuF">
