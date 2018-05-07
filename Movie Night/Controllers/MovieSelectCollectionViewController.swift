@@ -9,7 +9,7 @@
 import UIKit
 import TMDBSwift
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "movieCell"
 
 class MovieSelectCollectionViewController: UICollectionViewController {
     
@@ -22,14 +22,15 @@ class MovieSelectCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
         
         // Create movies
-        for movie in watchers!.listOfAllMovies {
-            print(movie.poster_path)
+        for _ in watchers!.listOfAllMovies {
+//            print(movie.poster_path)
         }
+        collectionView?.reloadData()
 
 //        MovieMDB.images(movieID: 871, language: "en"){
 //            data, imgs in
@@ -58,13 +59,25 @@ class MovieSelectCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return watchers!.listOfAllMovies.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MovieCollectionViewCell
+        
+        let movie = watchers!.listOfAllMovies[indexPath.row]
         // Configure the cell
+        let baseURL = "https://image.tmdb.org/t/p/"
+        let sizeParam = "w92"
+        let filePath = movie.poster_path
+        
+        if let filePath = filePath {
+            cell.movieImage.downloadedFrom(link: baseURL + sizeParam + filePath)
+        } else {
+            cell.movieImage.image = #imageLiteral(resourceName: "placeHolderImage")
+        }
+        
+        
     
         return cell
     }

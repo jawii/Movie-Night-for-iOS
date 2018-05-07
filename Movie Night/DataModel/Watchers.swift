@@ -18,12 +18,15 @@ class Watchers {
     
     lazy var listOfAllMovies: [KnownForMovie] = {
         
-        var list: [KnownForMovie] = []
+        var list: Set<KnownForMovie> = []
         for actor in actorsList {
             for movie in actor.known_for.movies! {
-                list.append(movie)
+                list.insert(movie)
             }
         }
-        return list
+        print(list.count)
+        let returnList = Array(list)
+        print(returnList.count)
+        return returnList
     }()
 }

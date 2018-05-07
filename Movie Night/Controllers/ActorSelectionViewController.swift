@@ -35,6 +35,7 @@ class ActorSelectionViewController: UITableViewController {
                 //self.baseURL = configData.base_url
                 //print(self.baseURL)
                 self.sizeParam = configData.still_sizes[0]
+                print(self.sizeParam)
             }
         }
         if watchers?.actorsList.count == 0 {

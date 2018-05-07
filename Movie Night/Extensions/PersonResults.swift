@@ -21,3 +21,16 @@ extension GenresMDB: Equatable {
     }
     
 }
+
+extension KnownForMovie: Equatable {
+    public static func == (lhs: KnownForMovie, rhs: KnownForMovie) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+}
+extension KnownForMovie: Hashable {
+    public var hashValue: Int {
+        return self.id
+    }
+    
+    
+}
