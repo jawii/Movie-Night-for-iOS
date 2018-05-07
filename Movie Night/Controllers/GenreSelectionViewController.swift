@@ -23,12 +23,12 @@ class GenreSelectionViewController: UITableViewController {
         
         
         // Get the genres if not got
-        if activeWatcher?.genresList.count == 0 {
+        if watchers?.genresList.count == 0 {
             GenresMDB.genres(listType: .movie, language: "en"){
                 apiReturn, genres in
                 if let genres = genres{
                     genres.forEach{
-                        self.activeWatcher?.genresList.append($0)
+                        self.watchers?.genresList.append($0)
                     }
                 }
                 self.tableView.reloadData()
@@ -56,8 +56,8 @@ class GenreSelectionViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let watcher = activeWatcher {
-            return watcher.genresList.count
+        if let watcherCount = watchers?.genresList.count {
+            return watcherCount
             
         } else {
             return 0
@@ -70,7 +70,7 @@ class GenreSelectionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "genreCell", for: indexPath) as! GenreTableViewCell
 
-        let genre = activeWatcher?.genresList[indexPath.row]
+        let genre = watchers?.genresList[indexPath.row]
         cell.genreNameLabel.text = genre?.name
         cell.currentGenre = genre
         cell.delegate = activeWatcher

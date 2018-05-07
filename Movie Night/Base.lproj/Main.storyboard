@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-H9-PGo">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs" userLabel="watcher1">
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1La-KN-o18">
-                                <rect key="frame" x="20" y="553" width="335" height="50"/>
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="X7Q-S6-rdE"/>
@@ -50,6 +50,10 @@
                                 <state key="normal" title="View results">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="movieSeletion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aOj-eX-dOA"/>
+                                    <action selector="movieSeletion:" destination="4RU-fC-Oxn" eventType="touchUpInside" id="h7D-Di-n06"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,11 +74,47 @@
                         <outlet property="watcherOneBtn" destination="fWg-ck-GBs" id="Hdh-u9-ZgS"/>
                         <outlet property="watcherTwoBtn" destination="6xk-N2-CG3" id="p8A-gy-Ua5"/>
                         <segue destination="Xdw-jC-PJx" kind="show" identifier="actorSelect" id="ZPm-EG-T4d"/>
+                        <segue destination="8Ar-b9-qdL" kind="show" identifier="movieSelection" id="h5s-5y-SO3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="4RU-fC-Oxn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="786" y="-574"/>
+        </scene>
+        <!--Movie Select Collection View Controller-->
+        <scene sceneID="B8B-FY-eOZ">
+            <objects>
+                <collectionViewController id="8Ar-b9-qdL" customClass="MovieSelectCollectionViewController" customModule="Movie_Night" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Qrv-Tr-ToI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nFt-dG-pw8">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pbA-aT-ANg">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="8Ar-b9-qdL" id="MN9-YU-AQm"/>
+                            <outlet property="delegate" destination="8Ar-b9-qdL" id="vG2-Ef-IdI"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VH4-hI-Vbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="198"/>
         </scene>
         <!--Pick actors you like-->
         <scene sceneID="P1O-Cb-Cpq">
@@ -263,7 +303,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAI-2P-icz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="-574.36281859070471"/>
+            <point key="canvasLocation" x="-134" y="-574"/>
         </scene>
     </scenes>
     <resources>
@@ -271,7 +311,6 @@
         <image name="bubble-empty" width="123" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZPm-EG-T4d"/>
-        <segue reference="aqj-f2-O58"/>
+        <segue reference="UVs-mD-uVs"/>
     </inferredMetricsTieBreakers>
 </document>

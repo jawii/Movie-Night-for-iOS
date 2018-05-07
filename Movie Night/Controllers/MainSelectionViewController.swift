@@ -82,10 +82,18 @@ class MainSelectionViewController: UIViewController {
                 return
             }
         }
+        if segue.identifier == "movieSelection" {
+            let controller = segue.destination as! MovieSelectCollectionViewController
+            controller.watchers = watchers
+        }
     }
     
     @IBAction func watcherSelection(_ sender: UIButton) {
             performSegue(withIdentifier: "actorSelect", sender: sender)
+    }
+    
+    @IBAction func movieSeletion(_ sender: Any) {
+        performSegue(withIdentifier: "movieSelection", sender: nil)
     }
 
 }

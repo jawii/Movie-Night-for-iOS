@@ -37,17 +37,21 @@ class ActorSelectionViewController: UITableViewController {
                 self.sizeParam = configData.still_sizes[0]
             }
         }
-        if activeWatcher?.actorsList.count == 0 {
-            PersonMDB.popular(page: 1) { data, ppl in
-                if let people = ppl {
-                    for human in people {
-                        self.activeWatcher!.actorsList.append(human)
-                        //print(human.name)
-                        //print(human.profile_path)
+        if watchers?.actorsList.count == 0 {
+            
+            for page in 1...2 {
+                PersonMDB.popular(page: page) { data, ppl in
+                    if let people = ppl {
+                        for human in people {
+                            self.watchers!.actorsList.append(human)
+                            //print(human.name)
+                            //print(human.profile_path)
+                        }
                     }
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
+            
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -70,10 +74,8 @@ class ActorSelectionViewController: UITableViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -82,7 +84,7 @@ class ActorSelectionViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let rowNumber = activeWatcher?.actorsList.count {
+        if let rowNumber = watchers?.actorsList.count {
             return rowNumber
         } else {
             return 0
@@ -93,7 +95,7 @@ class ActorSelectionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as! ActorTableViewCell
         
-        let actor = activeWatcher!.actorsList[indexPath.row]
+        let actor = watchers!.actorsList[indexPath.row]
         cell.delegate = activeWatcher
         
         cell.person = actor

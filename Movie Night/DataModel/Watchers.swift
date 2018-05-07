@@ -13,6 +13,17 @@ class Watchers {
     var watcher1 = WatcherDataModel()
     var watcher2 = WatcherDataModel()
     
-    let genreList: [GenresMDB] = []
-    let actorsList: [PersonResults] = []
+    var genresList: [GenresMDB] = []
+    var actorsList: [PersonResults] = []
+    
+    lazy var listOfAllMovies: [KnownForMovie] = {
+        
+        var list: [KnownForMovie] = []
+        for actor in actorsList {
+            for movie in actor.known_for.movies! {
+                list.append(movie)
+            }
+        }
+        return list
+    }()
 }
