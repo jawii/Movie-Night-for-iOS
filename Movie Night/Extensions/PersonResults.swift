@@ -31,6 +31,5 @@ extension KnownForMovie: Hashable {
     public var hashValue: Int {
         return self.id
     }
-    
-    
 }
+

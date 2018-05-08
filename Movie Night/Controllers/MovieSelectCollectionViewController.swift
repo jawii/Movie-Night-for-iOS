@@ -31,7 +31,15 @@ class MovieSelectCollectionViewController: UICollectionViewController {
 //            print(movie.poster_path)
         }
         collectionView?.reloadData()
-
+        
+        
+//        for movie in watchers!.moviePoints {
+//            print(movie.movie.original_title)
+//            print(movie.score)
+//            for genreID in movie.movie.genre_ids! {
+//                print(genreID)
+//            }
+//        }
 //        MovieMDB.images(movieID: 871, language: "en"){
 //            data, imgs in
 //            if let images = imgs{
@@ -43,33 +51,26 @@ class MovieSelectCollectionViewController: UICollectionViewController {
 //        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return watchers!.listOfAllMovies.count
+        return watchers!.moviePoints.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MovieCollectionViewCell
         
-        let movie = watchers!.listOfAllMovies[indexPath.row]
+        let movie = watchers!.moviePoints[indexPath.row]
         // Configure the cell
         let baseURL = "https://image.tmdb.org/t/p/"
         let sizeParam = "w92"
-        let filePath = movie.poster_path
+        let filePath = movie.movie.poster_path
         
         if let filePath = filePath {
             cell.movieImage.downloadedFrom(link: baseURL + sizeParam + filePath)
@@ -77,8 +78,6 @@ class MovieSelectCollectionViewController: UICollectionViewController {
             cell.movieImage.image = #imageLiteral(resourceName: "placeHolderImage")
         }
         
-        
-    
         return cell
     }
 
