@@ -36,11 +36,8 @@ class MainSelectionViewController: UIViewController {
         let canViewResults1: Bool = watchers!.watcher1.canViewResults
         let canViewResults2: Bool = watchers!.watcher2.canViewResults
         
-        if canViewResults1 && canViewResults2{
-            viewResults.isHidden = false
-        } else {
-            viewResults.isHidden = true
-        }
+        
+        viewResults.isHidden = !(canViewResults1 && canViewResults2)
         
         if watchers!.watcher1.canViewResults {
             watcherOneBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
@@ -51,21 +48,11 @@ class MainSelectionViewController: UIViewController {
         
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "actorSelect" {

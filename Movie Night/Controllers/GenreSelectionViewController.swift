@@ -16,6 +16,10 @@ class GenreSelectionViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let watchers = watchers else {
+            fatalError()
+        }
 
         // Create Done Button
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(toTheMainMenu))
@@ -23,7 +27,7 @@ class GenreSelectionViewController: UITableViewController {
         
         
         // Get the genres if not got
-        if watchers?.genresList.count == 0 {
+        if watchers.genresList.count == 0 {
             GenresMDB.genres(listType: .movie, language: "en"){
                 apiReturn, genres in
                 if let genres = genres{

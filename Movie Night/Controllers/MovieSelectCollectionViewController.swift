@@ -17,9 +17,16 @@ class MovieSelectCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //calculate frame width
+        let width = (view.frame.size.width) / 2
+        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+        
+        layout?.itemSize = CGSize(width: width, height: width)
+        
+        
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -27,28 +34,9 @@ class MovieSelectCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         
         // Create movies
-        for _ in watchers!.listOfAllMovies {
-//            print(movie.poster_path)
-        }
+//        for _ in watchers!.listOfAllMovies {
+//        }
         collectionView?.reloadData()
-        
-        
-//        for movie in watchers!.moviePoints {
-//            print(movie.movie.original_title)
-//            print(movie.score)
-//            for genreID in movie.movie.genre_ids! {
-//                print(genreID)
-//            }
-//        }
-//        MovieMDB.images(movieID: 871, language: "en"){
-//            data, imgs in
-//            if let images = imgs{
-//                print(images.posters[0].file_path)
-//                //Backdrop & stills might return `nil`
-//                // print(images.stills[0].file_path)
-//                //print(images.backdrops[0].file_path)
-//            }
-//        }
     }
 
 
@@ -69,7 +57,7 @@ class MovieSelectCollectionViewController: UICollectionViewController {
         let movie = watchers!.moviePoints[indexPath.row]
         // Configure the cell
         let baseURL = "https://image.tmdb.org/t/p/"
-        let sizeParam = "w92"
+        let sizeParam = "w300"
         let filePath = movie.movie.poster_path
         
         if let filePath = filePath {
