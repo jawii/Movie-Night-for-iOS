@@ -18,10 +18,12 @@ class MovieSelectCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //calculate frame width
-        let width = (view.frame.size.width) / 2
-        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.barStyle = .black
         
+        //calculate frame width
+        let width = view.frame.size.width
+        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.itemSize = CGSize(width: width, height: width)
         
         
@@ -31,11 +33,6 @@ class MovieSelectCollectionViewController: UICollectionViewController {
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-        // Do any additional setup after loading the view.
-        
-        // Create movies
-//        for _ in watchers!.listOfAllMovies {
-//        }
         collectionView?.reloadData()
     }
 
@@ -65,6 +62,9 @@ class MovieSelectCollectionViewController: UICollectionViewController {
         } else {
             cell.movieImage.image = #imageLiteral(resourceName: "placeHolderImage")
         }
+        
+        cell.movieTitle.text = movie.movie.original_title
+        cell.recomNumber.text = "#\(indexPath.row + 1)"
         
         return cell
     }

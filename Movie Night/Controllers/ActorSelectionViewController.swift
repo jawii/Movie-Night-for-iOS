@@ -16,7 +16,7 @@ class ActorSelectionViewController: UITableViewController {
     var watchers: Watchers?
     
     var baseURL = "https://image.tmdb.org/t/p/"
-    var sizeParam = ""
+    var sizeParam = "w92"
     
     
 
@@ -40,8 +40,8 @@ class ActorSelectionViewController: UITableViewController {
             if let configData = configs {
                 //self.baseURL = configData.base_url
                 //print(self.baseURL)
-                self.sizeParam = configData.still_sizes[0]
-                //print(configData.still_sizes)
+//                self.sizeParam = configData.still_sizes[0]
+                print(configData.still_sizes)
             }
         }
         if watchers.actorsList.count == 0 {
@@ -109,7 +109,6 @@ class ActorSelectionViewController: UITableViewController {
                 cell.disLiked = true
             }
         }
-        
         cell.configureButtons()
         
         cell.actorName.text = actor.name

@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-H9-PGo">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs" userLabel="watcher1">
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1La-KN-o18">
-                                <rect key="frame" x="20" y="553" width="335" height="50"/>
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="X7Q-S6-rdE"/>
@@ -82,14 +82,15 @@
             </objects>
             <point key="canvasLocation" x="786" y="-574"/>
         </scene>
-        <!--Movie Select Collection View Controller-->
+        <!--Movie Results-->
         <scene sceneID="B8B-FY-eOZ">
             <objects>
-                <collectionViewController id="8Ar-b9-qdL" customClass="MovieSelectCollectionViewController" customModule="Movie_Night" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Movie Results" id="8Ar-b9-qdL" customClass="MovieSelectCollectionViewController" customModule="Movie_Night" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Qrv-Tr-ToI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nFt-dG-pw8">
                             <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -98,25 +99,49 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="pbA-aT-ANg" customClass="MovieCollectionViewCell" customModule="Movie_Night" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="12.5" y="0.0" width="350" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R83-MJ-c92">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R83-MJ-c92">
+                                            <rect key="frame" x="176" y="6" width="150" height="189"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="2ig-aj-8AG"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsO-Jt-ZR8">
+                                            <rect key="frame" x="24" y="90.5" width="136" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-I0-O4L">
+                                            <rect key="frame" x="76" y="24.5" width="32.5" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="R83-MJ-c92" firstAttribute="leading" secondItem="pbA-aT-ANg" secondAttribute="leading" id="K2e-F3-0Sk"/>
-                                    <constraint firstAttribute="trailing" secondItem="R83-MJ-c92" secondAttribute="trailing" id="NIS-SG-Kjv"/>
-                                    <constraint firstAttribute="bottom" secondItem="R83-MJ-c92" secondAttribute="bottom" id="hjw-GP-3zp"/>
-                                    <constraint firstItem="R83-MJ-c92" firstAttribute="top" secondItem="pbA-aT-ANg" secondAttribute="top" id="u6o-DB-DbN"/>
+                                    <constraint firstItem="lsO-Jt-ZR8" firstAttribute="top" secondItem="a0G-I0-O4L" secondAttribute="bottom" constant="30" id="ASG-RM-PHf"/>
+                                    <constraint firstItem="R83-MJ-c92" firstAttribute="leading" secondItem="lsO-Jt-ZR8" secondAttribute="trailing" constant="16" id="JCP-rt-gye"/>
+                                    <constraint firstItem="lsO-Jt-ZR8" firstAttribute="leading" secondItem="pbA-aT-ANg" secondAttribute="leadingMargin" constant="16" id="OkE-3h-gf4"/>
+                                    <constraint firstItem="a0G-I0-O4L" firstAttribute="centerX" secondItem="lsO-Jt-ZR8" secondAttribute="centerX" id="ZvH-cd-Or8"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="R83-MJ-c92" secondAttribute="trailing" constant="16" id="cCQ-sZ-Met"/>
+                                    <constraint firstItem="R83-MJ-c92" firstAttribute="top" secondItem="pbA-aT-ANg" secondAttribute="top" constant="6" id="nan-he-7tu"/>
+                                    <constraint firstItem="R83-MJ-c92" firstAttribute="centerY" secondItem="pbA-aT-ANg" secondAttribute="centerY" id="uYx-fc-vr1"/>
+                                    <constraint firstItem="lsO-Jt-ZR8" firstAttribute="centerY" secondItem="pbA-aT-ANg" secondAttribute="centerY" id="wtD-Oh-K3t"/>
                                 </constraints>
+                                <size key="customSize" width="350" height="200"/>
                                 <connections>
                                     <outlet property="movieImage" destination="R83-MJ-c92" id="ysm-K2-CDY"/>
+                                    <outlet property="movieTitle" destination="lsO-Jt-ZR8" id="xEG-VB-SZr"/>
+                                    <outlet property="recomNumber" destination="a0G-I0-O4L" id="e2r-mp-NsJ"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -325,7 +350,6 @@
         <image name="bubble-empty" width="123" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZPm-EG-T4d"/>
-        <segue reference="aqj-f2-O58"/>
+        <segue reference="UVs-mD-uVs"/>
     </inferredMetricsTieBreakers>
 </document>

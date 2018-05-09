@@ -31,6 +31,8 @@ class MainSelectionViewController: UIViewController {
         }
         
         navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         
         
         let canViewResults1: Bool = watchers!.watcher1.canViewResults

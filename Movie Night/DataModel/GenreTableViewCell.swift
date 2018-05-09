@@ -30,15 +30,16 @@ class GenreTableViewCell: UITableViewCell {
         // Initialization code
 //        print("cell init")
         self.selectionStyle = .none
-        self.contentView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        self.contentView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
-        let font = UIFont(name: "Helvetica", size: 24)
+        let font = UIFont(name: "Helvetica", size: 20)
         self.genreNameLabel.font = font
+        genreNameLabel.textColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         
-        selectionButton.setTitle("🌚", for: .normal)
-        selectionButton.setTitle("👌🏽", for: .selected)
-        selectionButton.titleLabel?.font = UIFont(name: "Helvetica", size: 40)
-        selectionButton.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        selectionButton.setTitle("😶", for: .normal)
+        selectionButton.setTitle("😍", for: .selected)
+        selectionButton.titleLabel?.font = UIFont(name: "Helvetica", size: 50)
+        selectionButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 
         
     }

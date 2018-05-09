@@ -70,7 +70,7 @@ class Watchers {
             for genre in watcher1.likedGenres {
                 for genreID in movie.genre_ids! {
                     if genre.id == genreID {
-                        score += 2
+                        score += 1
                     }
                 }
             }
