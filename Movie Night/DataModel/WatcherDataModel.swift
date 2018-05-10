@@ -12,23 +12,35 @@ import TMDBSwift
 class WatcherDataModel {
     
     var canViewResults = false
-//    var actorsList: [PersonResults] = []
     var likedActors: [PersonResults] = [] {
         didSet {
-//            print("Person Added")
-//            for actor in likedActors {
-//                print(actor.name!)
-//            }
+            print("Persons in liked list:")
+            for actor in likedActors {
+                print(actor.name!)
+            }
+            print("\n")
         }
     }
-    var disLikedActors: [PersonResults] = []
+    var disLikedActors: [PersonResults] = [] {
+        didSet {
+            print("Persons in disliked list:")
+            for actor in disLikedActors {
+                print(actor.name!)
+            }
+            print("\n")
+        }
+    }
     
-//    var genresList: [GenresMDB] = []
     var likedGenres: [GenresMDB] = [] {
         didSet {
             print("Liked Genres:")
             for genre in likedGenres {
-                print("\(genre) \n")
+                if let genreName = genre.name {
+                    print("\(genreName) \n")
+                } else {
+                   print("\(genre) \n")
+                }
+                
             }
         }
     }

@@ -36,14 +36,14 @@ class ActorSelectionViewController: UITableViewController {
         let next = UIBarButtonItem(title: "Genres >", style: .done, target:self, action: #selector(nextController))
         navigationItem.setRightBarButton(next, animated: true)
         
-        ConfigurationMDB.configuration { clientData, configs in
-            if let configData = configs {
-                //self.baseURL = configData.base_url
-                //print(self.baseURL)
+//        ConfigurationMDB.configuration { clientData, configs in
+//            if let configData = configs {
+//                self.baseURL = configData.base_url
+//                print(self.baseURL)
 //                self.sizeParam = configData.still_sizes[0]
-                print(configData.still_sizes)
-            }
-        }
+//                print(configData.still_sizes)
+//            }
+//        }
         if watchers.actorsList.count == 0 {
             
             for page in 1...2 {

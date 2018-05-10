@@ -16,6 +16,12 @@ protocol ActorTableViewCellDelegate {
     func removeFromDisLikedList(person: PersonResults)
 }
 
+enum actorLikeValues: String {
+    case disLike = "☹️"
+    case like = "😍"
+    case neutral = "😶"
+}
+
 
 class ActorTableViewCell: UITableViewCell{
     
@@ -26,13 +32,8 @@ class ActorTableViewCell: UITableViewCell{
 
     @IBOutlet weak var actorName: UILabel!
     @IBOutlet weak var actorImage: UIImageView!
+    @IBOutlet weak var likeButton: UIButton!
     
-    @IBOutlet weak var yesButton: UIButton! {
-        didSet {
-            configureButtons()
-        }
-    }
-    @IBOutlet weak var noButton: UIButton!
     
     var liked: Bool = false
     var disLiked: Bool = false
@@ -45,59 +46,51 @@ class ActorTableViewCell: UITableViewCell{
     }
     
     func configureButtons() {
-        if !liked {
-            yesButton.backgroundColor = buttonBGcolor
-            yesButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-        } else {
-            yesButton.backgroundColor = #colorLiteral(red: 0.5563425422, green: 0.9793455005, blue: 0, alpha: 1)
-            yesButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .selected)
-        }
-        if !disLiked {
-            noButton.backgroundColor = buttonBGcolor
-            noButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-        } else {
-            noButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-            noButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .selected)
+        if !liked && !disLiked {
+            likeButton.setTitle("😶", for: .normal)
+        } else if liked {
+            likeButton.setTitle("😍", for: .normal)
+        } else if disLiked {
+            likeButton.setTitle("☹️", for: .normal)
         }
         
     }
     
     @IBAction func actorLiked(_ sender: UIButton) {
         
-        // If actor is disliked, unselect that
-        if disLiked {
-            // Remove actor from array
-            delegate?.removeFromDisLikedList(person: person!)
+        guard let person = person else { print("No person"); return }
+        
+        if !liked && !disLiked {
+            liked = true
+            delegate?.addToLikedList(person: person)
+        } else if liked {
+            delegate?.removeFromLikedList(person: person)
+            delegate?.addTodisLikedList(person: person)
+            liked = false
+            disLiked = true
+        } else if disLiked {
+            delegate?.removeFromDisLikedList(person: person)
+            delegate?.addTodisLikedList(person: person)
+            liked = false
             disLiked = false
         }
-        if !liked {
-            if let person = person {
-                delegate?.addToLikedList(person: person)
-            }
-            
-            
-        }
-        sender.isSelected = !sender.isSelected
-        liked = !liked
-        configureButtons()
-    }
-    @IBAction func actorDisLiked(_ sender: UIButton) {
         
-        if liked {
-            //remove actor from array
-            liked = false
-            delegate?.removeFromLikedList(person: person!)
-            
-        }
-        if !disLiked {
-            if let person = person {
-                delegate?.addTodisLikedList(person: person)
-            }
-        }
-        
-        sender.isSelected = !sender.isSelected
-        disLiked = !disLiked
+        //delegate?.addToLikedList(person: person)
+        //delegate?.removeFromDisLikedList(person: person!)
         configureButtons()
     }
     
+    //delegate?.addToLikedList(person: person)
+    //delegate?.removeFromDisLikedList(person: person!)
+    
 }
+
+
+
+
+
+
+
+
+
+
