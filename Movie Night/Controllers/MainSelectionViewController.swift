@@ -33,6 +33,8 @@ class MainSelectionViewController: UIViewController {
         // If there is no watchers. Setup them
         if watchers == nil {
             watchers = Watchers()
+            watchers?.watcher1 = WatcherDataModel()
+            watchers?.watcher2 = WatcherDataModel()
         }
         
         navigationController?.isNavigationBarHidden = true
@@ -45,11 +47,13 @@ class MainSelectionViewController: UIViewController {
     
     func configureButtons() {
         
-        guard let watchers = watchers else { return }
+        guard let watchers = watchers,
+            let watcher1 = watchers.watcher1,
+            let watcher2 = watchers.watcher2 else { return }
         
         
-        let canViewResults1 = watchers.watcher1.canViewResults
-        let canViewResults2 = watchers.watcher2.canViewResults
+        let canViewResults1 = watcher1.canViewResults
+        let canViewResults2 = watcher2.canViewResults
         
         
         viewResults.isHidden = !(canViewResults1 && canViewResults2)
@@ -102,8 +106,11 @@ class MainSelectionViewController: UIViewController {
     }
     
     @IBAction func resetSelections() {
+        
         watchers = nil
         watchers = Watchers()
+        watchers?.watcher1 = WatcherDataModel()
+        watchers?.watcher2 = WatcherDataModel()
         
         configureButtons()
     }

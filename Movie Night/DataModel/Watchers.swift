@@ -12,18 +12,18 @@ import TMDBSwift
 class Watchers {
     
     
-    deinit {
-        print("*************************")
-        print("Watchers deinitialized...")
-        print("*************************")
-    }
+//    deinit {
+//        print("*************************")
+//        print("Watchers deinitialized...")
+//        print("*************************")
+//    }
+//
+//    init() {
+//        print("Wathcers initialized.")
+//    }
     
-    init() {
-        print("Wathcers initialized.")
-    }
-    
-    var watcher1 = WatcherDataModel()
-    var watcher2 = WatcherDataModel()
+    var watcher1: WatcherDataModel?
+    var watcher2: WatcherDataModel?
     
     var genresList: [GenresMDB] = []
     var actorsList: [PersonResults] = []
@@ -54,29 +54,29 @@ class Watchers {
             var score = 0
             
             //Go trough liked actors and disliked actors
-            for actor in watcher1.likedActors {
+            for actor in watcher1!.likedActors {
                 for actorMovie in actor.known_for.movies! {
                     if actorMovie == movie {
                         score += 1
-                        print("Score added for \(movie.title)")
+//                        print("Score added for \(movie.title!)")
                     }
                 }
             }
-            for actor in watcher1.disLikedActors {
+            for actor in watcher1!.disLikedActors {
                 for actorMovie in actor.known_for.movies! {
                     if actorMovie == movie {
                         score -= 1
                     }
                 }
             }
-            for actor in watcher2.likedActors {
+            for actor in watcher2!.likedActors {
                 for actorMovie in actor.known_for.movies! {
                     if actorMovie == movie {
                         score += 1
                     }
                 }
             }
-            for actor in watcher2.disLikedActors {
+            for actor in watcher2!.disLikedActors {
                 for actorMovie in actor.known_for.movies! {
                     if actorMovie == movie {
                         score -= 1
@@ -84,7 +84,7 @@ class Watchers {
                 }
             }
             // Go trough genres
-            for genre in watcher1.likedGenres {
+            for genre in watcher1!.likedGenres {
                 for genreID in movie.genre_ids! {
                     if genre.id == genreID {
                         score += 1
