@@ -20,27 +20,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-H9-PGo">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs" userLabel="watcher1">
-                                <rect key="frame" x="29" y="260" width="123" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="bubble-empty"/>
-                                <connections>
-                                    <action selector="watcherSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z4K-Fm-Ujo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xk-N2-CG3" userLabel="watcher2">
-                                <rect key="frame" x="236" y="260" width="123" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="bubble-empty"/>
-                                <connections>
-                                    <action selector="watcherSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXU-ef-Cam"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0Fq-vu-6An">
+                                <rect key="frame" x="20" y="285" width="335" height="97"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWg-ck-GBs" userLabel="watcher1">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="97"/>
+                                        <state key="normal" image="bubble-empty"/>
+                                        <connections>
+                                            <action selector="watcherSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z4K-Fm-Ujo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xk-N2-CG3" userLabel="watcher2">
+                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="97"/>
+                                        <state key="normal" image="bubble-empty"/>
+                                        <connections>
+                                            <action selector="watcherSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXU-ef-Cam"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1La-KN-o18">
-                                <rect key="frame" x="20" y="553" width="335" height="50"/>
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="X7Q-S6-rdE"/>
@@ -56,30 +59,50 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVIE NIGHT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m24-NL-tKt">
-                                <rect key="frame" x="54" y="80" width="268.5" height="50"/>
+                                <rect key="frame" x="54" y="124" width="268.5" height="50"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4g-jD-IwZ">
+                                <rect key="frame" x="135.5" y="402" width="104" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MQA-oS-5gZ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.70196078431372544" green="0.36862745098039218" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Reset progress">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetSelections" destination="BYZ-38-t0r" eventType="touchUpInside" id="3oj-Fm-4aM"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yJZ-H9-PGo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6ad-LC-C8f"/>
+                            <constraint firstItem="V4g-jD-IwZ" firstAttribute="top" secondItem="6xk-N2-CG3" secondAttribute="bottom" constant="20" id="7we-9E-o0e"/>
                             <constraint firstItem="yJZ-H9-PGo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="86A-2j-gIa"/>
+                            <constraint firstItem="0Fq-vu-6An" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Cm2-ab-cWP"/>
                             <constraint firstItem="1La-KN-o18" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dfj-3z-D1n"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1La-KN-o18" secondAttribute="bottom" constant="20" id="Fcm-SF-1SQ"/>
+                            <constraint firstItem="V4g-jD-IwZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IJd-d1-wdU"/>
+                            <constraint firstItem="0Fq-vu-6An" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OVx-2B-6L1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1La-KN-o18" secondAttribute="trailing" constant="20" id="aQi-il-0kT"/>
                             <constraint firstItem="m24-NL-tKt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="bsr-mC-MrS"/>
                             <constraint firstItem="yJZ-H9-PGo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="l1k-fw-Lx8"/>
-                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oI3-ae-VNd"/>
+                            <constraint firstItem="yJZ-H9-PGo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oI3-ae-VNd"/>
                             <constraint firstItem="m24-NL-tKt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wqN-zW-FhK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Fq-vu-6An" secondAttribute="trailing" constant="20" id="xCY-Fh-XHT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wmg-eG-fo4"/>
                     <connections>
+                        <outlet property="resetButton" destination="V4g-jD-IwZ" id="1zZ-GF-grc"/>
                         <outlet property="viewResults" destination="1La-KN-o18" id="1NK-lN-xa0"/>
                         <outlet property="watcherOneBtn" destination="fWg-ck-GBs" id="Hdh-u9-ZgS"/>
                         <outlet property="watcherTwoBtn" destination="6xk-N2-CG3" id="p8A-gy-Ua5"/>
@@ -254,11 +277,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nX-PX-oto">
-                                            <rect key="frame" x="259" y="14" width="70" height="70"/>
+                                            <rect key="frame" x="296" y="14" width="33" height="70"/>
                                             <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="jk6-lF-jpV"/>
-                                                <constraint firstAttribute="width" constant="70" id="sFc-Ry-4zT"/>
                                             </constraints>
                                             <state key="normal" title="YES"/>
                                             <connections>
@@ -268,6 +290,8 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
+                                        <constraint firstItem="8nX-PX-oto" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QPY-bY-iWS" secondAttribute="leadingMargin" id="K43-qt-CD6"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g05-6L-Bcz" secondAttribute="trailingMargin" id="KIN-pt-Qrh"/>
                                         <constraint firstItem="g05-6L-Bcz" firstAttribute="centerY" secondItem="QPY-bY-iWS" secondAttribute="centerY" id="MhJ-uI-wVh"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="8nX-PX-oto" secondAttribute="trailing" constant="30" id="YZA-sT-5A0"/>
                                         <constraint firstItem="8nX-PX-oto" firstAttribute="centerY" secondItem="QPY-bY-iWS" secondAttribute="centerY" id="l0u-fw-C6N"/>
@@ -320,7 +344,6 @@
         <image name="bubble-empty" width="123" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZPm-EG-T4d"/>
-        <segue reference="aqj-f2-O58"/>
+        <segue reference="UVs-mD-uVs"/>
     </inferredMetricsTieBreakers>
 </document>

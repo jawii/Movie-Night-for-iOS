@@ -93,18 +93,25 @@ class ActorSelectionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as! ActorTableViewCell
         
-        let actor = watchers!.actorsList[indexPath.row]
+        guard let watchers = watchers,
+            let activeWatcher = activeWatcher else {
+                print("watchers or activewatchers not initialized")
+                fatalError()
+        }
+        
+        
+        let actor = watchers.actorsList[indexPath.row]
         cell.delegate = activeWatcher
         
         cell.person = actor
         cell.liked = false
-        for actor1 in activeWatcher!.likedActors {
+        for actor1 in activeWatcher.likedActors {
             if actor1 == actor {
                 cell.liked = true
             }
         }
         cell.disLiked = false
-        for actor1 in activeWatcher!.disLikedActors {
+        for actor1 in activeWatcher.disLikedActors {
             if actor1 == actor {
                 cell.disLiked = true
             }

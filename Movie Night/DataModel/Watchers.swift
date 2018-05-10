@@ -10,6 +10,18 @@ import Foundation
 import TMDBSwift
 
 class Watchers {
+    
+    
+    deinit {
+        print("*************************")
+        print("Watchers deinitialized...")
+        print("*************************")
+    }
+    
+    init() {
+        print("Wathcers initialized.")
+    }
+    
     var watcher1 = WatcherDataModel()
     var watcher2 = WatcherDataModel()
     
@@ -30,9 +42,13 @@ class Watchers {
     }()
     
     lazy var moviePoints: [(movie: KnownForMovie, score: Int)] = {
-        
+        return createMovieResults()
+    }()
+    
+    
+    func createMovieResults() -> [(movie: KnownForMovie, score: Int)] {
         var list: [(movie: KnownForMovie, score: Int)] = []
-       
+        
         //Go trough movies
         for movie in listOfAllMovies {
             var score = 0
@@ -42,6 +58,7 @@ class Watchers {
                 for actorMovie in actor.known_for.movies! {
                     if actorMovie == movie {
                         score += 1
+                        print("Score added for \(movie.title)")
                     }
                 }
             }
@@ -82,5 +99,5 @@ class Watchers {
         
         
         return list.sorted {$0.score > $1.score}
-    }()
+    }
 }

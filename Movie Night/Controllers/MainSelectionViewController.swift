@@ -18,6 +18,12 @@ class MainSelectionViewController: UIViewController {
     
     
     @IBOutlet weak var viewResults: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    // Setup the status bar white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
     
 
     override func viewDidLoad() {
@@ -26,7 +32,6 @@ class MainSelectionViewController: UIViewController {
         
         // If there is no watchers. Setup them
         if watchers == nil {
-            print("Wathcers were nil!")
             watchers = Watchers()
         }
         
@@ -35,20 +40,31 @@ class MainSelectionViewController: UIViewController {
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         
         
-        let canViewResults1: Bool = watchers!.watcher1.canViewResults
-        let canViewResults2: Bool = watchers!.watcher2.canViewResults
+        configureButtons()
+    }
+    
+    func configureButtons() {
+        
+        guard let watchers = watchers else { return }
+        
+        
+        let canViewResults1 = watchers.watcher1.canViewResults
+        let canViewResults2 = watchers.watcher2.canViewResults
         
         
         viewResults.isHidden = !(canViewResults1 && canViewResults2)
+        resetButton.isHidden = !(canViewResults1 || canViewResults2)
         
-        if watchers!.watcher1.canViewResults {
+        if canViewResults1 {
             watcherOneBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
+        } else {
+            watcherOneBtn.setImage(#imageLiteral(resourceName: "bubble-empty"), for: .normal)
         }
-        if watchers!.watcher2.canViewResults {
+        if canViewResults2 {
             watcherTwoBtn.setImage(#imageLiteral(resourceName: "bubble-selected"), for: .normal)
+        } else {
+            watcherTwoBtn.setImage(#imageLiteral(resourceName: "bubble-empty"), for: .normal)
         }
-        
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,9 +80,9 @@ class MainSelectionViewController: UIViewController {
             controller.watchers = watchers
             switch sender.tag {
             case 0:
-                controller.activeWatcher = watchers?.watcher1
+                controller.activeWatcher = watchers!.watcher1
             case 1:
-                controller.activeWatcher = watchers?.watcher2
+                controller.activeWatcher = watchers!.watcher2
             default:
                 return
             }
@@ -78,12 +94,48 @@ class MainSelectionViewController: UIViewController {
     }
     
     @IBAction func watcherSelection(_ sender: UIButton) {
-            performSegue(withIdentifier: "actorSelect", sender: sender)
+        performSegue(withIdentifier: "actorSelect", sender: sender)
     }
     
     @IBAction func movieSeletion(_ sender: Any) {
         performSegue(withIdentifier: "movieSelection", sender: nil)
     }
+    
+    @IBAction func resetSelections() {
+        watchers = nil
+        watchers = Watchers()
+        
+        configureButtons()
+    }
+    
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
